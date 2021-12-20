@@ -1,0 +1,135 @@
+#include<iostream>
+using namespace std;
+void add(int a[][4],int b[][4]);
+void sub(int a[][4],int b[][4]);
+void multiply(int a[][4],int b[][4]);
+void transpose(int a[][4],int b[][4]);
+int main()
+{
+    int c,a[4][4],b[4][4],i=0,j=0;
+    cout<<"Enter 1st 4x4 matrix ";
+    for(i=0;i<4;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+    cout<<"\nEnter 2nd 4x4 matrix ";
+    for(i=0;i<4;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            cin>>b[i][j];
+        }
+    }
+    cout<<"\nEnter your choice ";
+    cout<<"\n1. Matrix Addition";
+    cout<<"\n2. Matrix Subtraction";
+    cout<<"\n3. Matrix Multiplication";
+    cout<<"\n4. Matrix Transpose\n";
+    cin>>c;
+    switch(c)
+    {
+        case 1: add(a,b);
+                break;
+        case 2: sub(a,b);
+                break;
+        case 3: multiply(a,b);
+                break;
+        case 4: transpose(a,b);
+                break;
+        default: cout<<"Wrong input";
+    }
+    return 0;
+}
+void add(int a[][4],int b[][4])
+{
+    int add[4][4],i,j;
+                for(i=0;i<4;i++)
+                {
+                   for(j=0;j<4;j++)
+                    {
+                      add[i][j]=a[i][j]+b[i][j];
+                    }
+                }
+                cout<<"\nAdding both matrices we get \n";
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;j<4;j++)
+                    {
+                        cout<<add[i][j]<<" ";
+                    }
+                    cout<<"\n";
+                }
+}
+void sub(int a[][4],int b[][4])
+{
+    int sub[4][4],i,j;
+                for(i=0;i<4;i++)
+                {
+                   for(j=0;j<4;j++)
+                    {
+                      sub[i][j]=a[i][j]-b[i][j];
+                    }
+                }
+                cout<<"\nSubtracting second matrix from first matrix we get\n ";
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;j<4;j++)
+                    {
+                        cout<<sub[i][j]<<" ";
+                    }
+                    cout<<"\n";
+                }
+}
+void multiply(int a[][4],int b[][4])
+{
+    int multiply[4][4],i,j;
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;i<4;j++)
+                    {
+                        multiply[i][j]=a[i][j]*b[j][i];
+                    }
+                }
+                cout<<"\nMultiplying both matrices we get\n";
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;j<4;j++)
+                    {
+                        cout<<multiply[i][j]<<" ";
+                    }
+                    cout<<"\n";
+                }
+}
+void transpose(int a[][4],int b[][4])
+{
+   int transpose1[4][4],transpose2[4][4],i,j;
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;i<4;j++)
+                    {
+                        transpose1[i][j]=a[j][i];
+                        transpose2[i][j]=b[i][j];
+                    }
+                }
+                cout<<"\nTranspose of 1st matrix\n";
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;j<4;j++)
+                    {
+                        cout<<transpose1[i][j]<<" ";
+                    }
+                    cout<<"\n";
+                }
+                cout<<"\nTranspose of 2nd matrix\n";
+                for(i=0;i<4;i++)
+                {
+                    for(j=0;j<4;j++)
+                    {
+                        cout<<transpose2[i][j]<<" ";
+                    }
+                    cout<<"\n";
+                }
+}
